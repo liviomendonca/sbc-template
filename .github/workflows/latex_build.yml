@@ -11,13 +11,13 @@ jobs:
         uses: xu-cheng/latex-action@v2
         with:
           root_file: main.tex
-          working_directory: article/
+          working_directory: academics/
           continue_on_error: true
       - name: Save PDF as Artifact
         uses: actions/upload-artifact@v3
         with:
           name: main
-          path: article/main.pdf
+          path: academics/main.pdf
       - name: Display structure of downloaded files
         run: ls -R
       - name: comment PR

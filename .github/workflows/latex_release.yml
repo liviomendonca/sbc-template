@@ -14,13 +14,13 @@ jobs:
         uses: xu-cheng/latex-action@v2
         with:
           root_file: main.tex
-          working_directory: article/
+          working_directory: academics/
           continue_on_error: true
       - name: Create Release     
         run: |
             echo "BUILD_DATE=$(date +'%d-%b-%Y')" >> $GITHUB_ENV
             echo "COMPLETE_BUILD_DATE=$(date +'%d-%b-%Y_%h-%mm-%s')" >> $GITHUB_ENV
-            mv article/main.pdf article/artigo.pdf
+            mv academics/main.pdf academics/artigo.pdf
       - uses: "marvinpinto/action-automatic-releases@latest"
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
@@ -28,4 +28,4 @@ jobs:
           prerelease: false
           title: "Artigo Versao ${{ env.BUILD_DATE }}"
           files: |
-            article/artigo.pdf
+            academics/artigo.pdf
